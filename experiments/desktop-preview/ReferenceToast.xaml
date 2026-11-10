@@ -1,0 +1,51 @@
+<Window x:Class="Whisper.Preview.ReferenceToast"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Whisper · Referência encontrada" Width="370" SizeToContent="Height"
+        WindowStyle="None" ResizeMode="NoResize" AllowsTransparency="True" Background="Transparent"
+        ShowInTaskbar="False" ShowActivated="False" Topmost="True" Focusable="False" Opacity="0"
+        FontFamily="Segoe UI" Foreground="{StaticResource Text}" UseLayoutRounding="True"
+        MouseEnter="PauseDismissal" MouseLeave="ResumeDismissal">
+    <Border Margin="8" Padding="16,13,13,12" CornerRadius="12" Background="#F51C241F"
+            BorderBrush="{StaticResource Outline}" BorderThickness="1">
+        <Border.RenderTransform>
+            <TranslateTransform x:Name="Slide" />
+        </Border.RenderTransform>
+        <Border.Effect>
+            <DropShadowEffect BlurRadius="12" ShadowDepth="2" Opacity="0.18" />
+        </Border.Effect>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <DockPanel>
+                <Button DockPanel.Dock="Right" Content="×" Click="Dismiss" Width="26" Height="25"
+                        MinHeight="0" Padding="0" Background="Transparent" BorderBrush="Transparent"
+                        Foreground="{StaticResource Muted}" FontSize="18" AutomationProperties.Name="Dispensar notificação" />
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                    <Border Width="22" Height="22" CornerRadius="6" Background="{StaticResource Control}" Margin="0,0,8,0">
+                        <TextBlock Text="W" FontFamily="Georgia" Foreground="{StaticResource Accent}"
+                                   FontSize="13" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    </Border>
+                    <TextBlock Text="WHISPER" Foreground="{StaticResource Accent}" FontSize="10" FontWeight="Bold"
+                               VerticalAlignment="Center" />
+                    <TextBlock Text="  ·  referência encontrada" FontSize="10" Foreground="{StaticResource Muted}"
+                               VerticalAlignment="Center" />
+                </StackPanel>
+            </DockPanel>
+            <TextBlock x:Name="TopicTitle" Grid.Row="1" FontFamily="Georgia" FontSize="21" Margin="0,9,0,5"
+                       TextWrapping="Wrap" MaxHeight="55" TextTrimming="CharacterEllipsis" />
+            <TextBlock x:Name="TopicBody" Grid.Row="2" FontSize="12" LineHeight="18" TextWrapping="Wrap"
+                       MaxHeight="54" TextTrimming="CharacterEllipsis" Foreground="{StaticResource Muted}" />
+            <DockPanel Grid.Row="3" Margin="0,12,0,0">
+                <Button DockPanel.Dock="Right" Content="Abrir referência" Click="OpenReference" Padding="10,5"
+                        MinHeight="29" FontSize="11" Foreground="{StaticResource Accent}" Margin="10,0,0,0" />
+                <TextBlock x:Name="TopicSource" FontSize="10" Foreground="{StaticResource Muted}"
+                           VerticalAlignment="Center" TextWrapping="Wrap" MaxHeight="30" TextTrimming="CharacterEllipsis" />
+            </DockPanel>
+        </Grid>
+    </Border>
+</Window>
