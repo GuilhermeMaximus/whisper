@@ -7,12 +7,12 @@
         FontFamily="Segoe UI" Foreground="{StaticResource Text}" UseLayoutRounding="True"
         MouseEnter="PauseDismissal" MouseLeave="ResumeDismissal">
     <Border Margin="8" Padding="16,13,13,12" CornerRadius="12" Background="#F51C241F"
-            BorderBrush="{StaticResource Outline}" BorderThickness="1">
+            BorderBrush="#4B6252" BorderThickness="1">
         <Border.RenderTransform>
             <TranslateTransform x:Name="Slide" />
         </Border.RenderTransform>
         <Border.Effect>
-            <DropShadowEffect BlurRadius="12" ShadowDepth="2" Opacity="0.18" />
+            <DropShadowEffect BlurRadius="14" ShadowDepth="3" Opacity="0.3" />
         </Border.Effect>
         <Grid>
             <Grid.RowDefinitions>
@@ -26,8 +26,8 @@
                         MinHeight="0" Padding="0" Background="Transparent" BorderBrush="Transparent"
                         Foreground="{StaticResource Muted}" FontSize="18" AutomationProperties.Name="Dispensar notificação" />
                 <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
-                    <Border Width="22" Height="22" CornerRadius="6" Background="{StaticResource Control}" Margin="0,0,8,0">
-                        <TextBlock Text="W" FontFamily="Georgia" Foreground="{StaticResource Accent}"
+                    <Border Width="22" Height="22" CornerRadius="7" Background="{StaticResource AccentGradient}" Margin="0,0,8,0">
+                        <TextBlock Text="W" FontFamily="Georgia" FontWeight="Bold" Foreground="{StaticResource AccentInk}"
                                    FontSize="13" HorizontalAlignment="Center" VerticalAlignment="Center" />
                     </Border>
                     <TextBlock Text="WHISPER" Foreground="{StaticResource Accent}" FontSize="10" FontWeight="Bold"
