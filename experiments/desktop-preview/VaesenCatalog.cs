@@ -31,6 +31,8 @@ internal sealed class VaesenCatalog
             return book.Pages.Select(page => new IndexedPage(book, page, pages?.GetValueOrDefault(page.Number)));
         }).ToDictionary(item => (item.Book.Id, item.Page.Number));
         var topics = ReadTopics("vaesen-topics.json").Concat(ReadTopics("vaesen-entries.json")).ToArray();
+        var (guide, groupTitles) = CardLibrary.ReadGuide(Path.Combine(AppContext.BaseDirectory, "vaesen-guide.json"));
+        var generated = CardLibrary.ReadGenerated(Path.Combine(Path.GetDirectoryName(Path.GetFullPath(packPath)) ?? "", "vaesen-cards.json"));
         if (topics.Select(topic => Normalize(topic.Title)).Distinct().Count() != topics.Length)
         {
             throw new InvalidDataException("O catálogo de Vaesen contém títulos repetidos.");
@@ -44,10 +46,11 @@ internal sealed class VaesenCatalog
             var original = TechnicalReference.Select(topic, sources.Select(source => source.Page.Text));
             var portuguese = sources[0].Book.IsEnglish && (topic.Category != "Arquétipos" || topic.Summary is null)
                 ? TechnicalReference.Select(topic, sources.Select(source => source.Portuguese ?? "")) : [];
-            return new Entry(topic, sources[0], original, portuguese);
+            return new Entry(topic, sources[0], original, portuguese, guide.GetValueOrDefault(topic.Title) ?? generated.GetValueOrDefault(topic.Title));
         })
             .ToArray();
-        Categories = entries.Select(item => item.Topic.BrowseCategory).Distinct().ToArray();
+        var found = entries.Select(item => item.BrowseCategory).Distinct().ToList();
+        Categories = groupTitles.Where(found.Contains).Concat(found.Where(category => !groupTitles.Contains(category))).ToArray();
     }
 
     private static Dictionary<string, TranslationBook>? ReadTranslations(string path)
@@ -82,7 +85,7 @@ internal sealed class VaesenCatalog
         string normalized = Normalize(query);
         string[] terms = normalized.Split(' ', StringSplitOptions.RemoveEmptyEntries);
         var results = entries.Where(item => (book is null || item.Page.Book.Id == book) &&
-                (!optionalOnly || item.Topic.IsOptional) && (category is null || item.Topic.BrowseCategory == category))
+                (!optionalOnly || item.Topic.IsOptional) && (category is null || item.BrowseCategory == category))
             .Select(item => (Item: item, Rank: item.Match(normalized, terms)))
             .Where(result => result.Rank > 0).ToArray();
         int threshold = results.Any(result => result.Rank >= 3) ? 3 : 1;
@@ -126,8 +129,10 @@ internal sealed class VaesenCatalog
             "Opção de aventura" or "Opção de personagem" or "Variante regional";
     }
 
-    internal sealed record Entry(Topic Topic, IndexedPage Page, ReferenceText.Block[] Original, ReferenceText.Block[] Portuguese)
+    internal sealed record Entry(Topic Topic, IndexedPage Page, ReferenceText.Block[] Original, ReferenceText.Block[] Portuguese, Card? Card = null)
     {
+        public string BrowseCategory => Topic.Category ?? Card?.Group ?? Topic.BrowseCategory;
+        public string? Blurb => Card?.Group is null ? null : Card.When;
         public string Title => Topic.Title;
         public string ShortSource => Page.Book.Id switch
         {
@@ -139,7 +144,7 @@ internal sealed class VaesenCatalog
         public string PageLabel => Page.Page.Printed is int printed ? $"p. {printed}" : $"PDF {Page.Page.Number}";
         public string? Note => Topic.Kind;
         public string AccessibleName => $"{Title} · {ShortSource} · {PageLabel}";
-        private string SearchText { get; } = $" {Normalize($"{Topic.Summary} {string.Join(' ', Original.Concat(Portuguese).Select(block => block.Text))}")} ";
+        private string SearchText { get; } = $" {Normalize($"{Topic.Summary} {Card?.SearchText} {string.Join(' ', Original.Concat(Portuguese).Select(block => block.Text))}")} ";
 
         public int Match(string normalized, string[] terms)
         {

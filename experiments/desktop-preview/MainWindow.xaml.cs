@@ -26,6 +26,7 @@ public partial class MainWindow : Window
     public MainWindow()
     {
         InitializeComponent();
+        DarkTitleBar.Apply(this);
         SystemPicker.SelectedIndex = File.Exists(PackPath()) ? 0 : 1;
     }
 

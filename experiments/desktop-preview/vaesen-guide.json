@@ -1,0 +1,1522 @@
+{
+ "version": 1,
+ "groups": [
+  {
+   "id": "criacao",
+   "title": "Criação e evolução",
+   "order": 1,
+   "blurb": "Montar a personagem, talentos e experiência."
+  },
+  {
+   "id": "testes",
+   "title": "Testes e dados",
+   "order": 2,
+   "blurb": "Como rolar, forçar, ajudar e disputar."
+  },
+  {
+   "id": "combate",
+   "title": "Combate",
+   "order": 3,
+   "blurb": "Iniciativa, zonas, ações e defesas."
+  },
+  {
+   "id": "dano",
+   "title": "Dano, Condições e Medo",
+   "order": 4,
+   "blurb": "Condições, ferimentos, Medo, veneno, fogo e cura."
+  },
+  {
+   "id": "equipamento",
+   "title": "Equipamento e recursos",
+   "order": 5,
+   "blurb": "Compras, armas, armaduras e tabelas."
+  },
+  {
+   "id": "base",
+   "title": "Base e campanha",
+   "order": 6,
+   "blurb": "Entre mistérios: Desenvolvimento, melhorias e ameaças."
+  },
+  {
+   "id": "vaesen",
+   "title": "Vaesen e magia",
+   "order": 7,
+   "blurb": "Como os vaesen agem, rituais e poderes."
+  },
+  {
+   "id": "misterio",
+   "title": "Preparar o mistério",
+   "order": 8,
+   "blurb": "Ferramentas da Mestre: pistas, contagem, PNJs e criaturas."
+  },
+  {
+   "id": "regional",
+   "title": "Suplementos e variantes",
+   "order": 9,
+   "blurb": "Regras de Britain & Ireland e Mythic Carpathia."
+  }
+ ],
+ "cards": {
+  "Caminhos da Vida: criação por tabelas": {
+   "group": "criacao",
+   "when": "O grupo quer criar personagens rolando dados em vez de distribuir pontos.",
+   "quick": [
+    [
+     "Dados",
+     "D66 para classe e profissão, D3 para traços"
+    ],
+    [
+     "Recursos por classe",
+     "Pobre 1 · Proletário 2 · Burguês 3 · Aristocrata 5"
+    ],
+    [
+     "Idade",
+     "Meia-idade e velhice: −1 em um atributo cada"
+    ]
+   ],
+   "steps": [
+    "Role a Classe (ou escolha) e anote os Recursos iniciais.",
+    "Role a tabela de Criação da classe para obter atributos e perícias.",
+    "Role ou escolha a Profissão e some os Recursos dela.",
+    "Role os Eventos da Vida da profissão: perícias e equipamento. Excesso em perícia secundária vai para a principal (máx. 3).",
+    "Você é Jovem: comece o jogo ou role outro evento para chegar à Meia-Idade (−1 em um atributo) e à Velhice (−1 em outro; nenhum atributo começa em zero).",
+    "Ajuste final: mova 1 ponto de atributo (máx. 5 no principal) e gaste 2 pontos de perícia extras (máx. 3 na principal).",
+    "Role D3 para Trauma, Motivação, Segredo Sombrio e Talento (ou escolha) e pegue 1 item extra."
+   ],
+   "watch": [
+    "As ocupações dessas tabelas são variações dos arquétipos e não têm efeitos de regras."
+   ],
+   "related": [
+    "Criação de personagem e pontos iniciais",
+    "Tabelas de profissões e eventos britânicos"
+   ]
+  },
+  "Criação de personagem e pontos iniciais": {
+   "group": "criacao",
+   "when": "Montar uma personagem jogadora do jeito padrão, o mais rápido.",
+   "quick": [
+    [
+     "Jovem (17–25)",
+     "15 pontos de atributo · 10 de perícia"
+    ],
+    [
+     "Meia-idade (26–50)",
+     "14 de atributo · 12 de perícia"
+    ],
+    [
+     "Idoso (51+)",
+     "13 de atributo · 14 de perícia"
+    ]
+   ],
+   "steps": [
+    "Escolha o arquétipo, a idade e o nome.",
+    "Distribua pontos de atributo e de perícia (e Recursos) conforme a faixa etária.",
+    "Escolha 1 talento entre os 3 do arquétipo.",
+    "Escolha Motivação, Trauma e Segredo Sombrio.",
+    "Defina o relacionamento com cada outra personagem jogadora.",
+    "Role os souvenires e escolha o equipamento."
+   ],
+   "watch": [
+    "Não deve haver mais de uma personagem do mesmo arquétipo no grupo.",
+    "Motivação, Trauma e Segredo Sombrio podem ser inventados, com aprovação da Mestre."
+   ],
+   "related": [
+    "Arquétipos do livro básico",
+    "Ganhar e gastar Pontos de Experiência"
+   ]
+  },
+  "Arquétipos do livro básico": {
+   "group": "criacao",
+   "when": "Escolher a base da personagem: o que ela faz de melhor.",
+   "quick": [
+    [
+     "Quantidade",
+     "10 arquétipos"
+    ],
+    [
+     "Cada um define",
+     "atributo e perícia principais, talentos iniciais, Recursos e equipamento"
+    ]
+   ],
+   "steps": [
+    "Escolha um arquétipo e siga as opções dele (nome, motivação, trauma, segredo, relações).",
+    "As partes de personalidade são livres, com aprovação da Mestre.",
+    "As características (atributo, perícia, talentos) ficam dentro dos limites do arquétipo.",
+    "Consulte as fichas na categoria Arquétipos."
+   ],
+   "watch": [
+    "Evite repetir o mesmo arquétipo entre as personagens do grupo."
+   ],
+   "related": [
+    "Criação de personagem e pontos iniciais"
+   ]
+  },
+  "Ganhar e gastar Pontos de Experiência": {
+   "group": "criacao",
+   "when": "Fim da sessão: a Mestre faz as perguntas de XP e o grupo gasta avanços.",
+   "quick": [
+    [
+     "Ganho",
+     "1 XP por pergunta respondida “sim” (participar já dá 1)"
+    ],
+    [
+     "Avanço",
+     "5 XP = +1 nível de perícia ou 1 talento novo"
+    ],
+    [
+     "Limite",
+     "perícia máx. 5; talentos sem limite"
+    ]
+   ],
+   "steps": [
+    "Ao fim da sessão, a Mestre faz as perguntas à personagem.",
+    "Perguntas: participou? confrontou um vaesen? identificou um novo? sofreu o Segredo Sombrio? arriscou-se por outros? aprendeu algo? desenvolveu algo na base? fez algo extraordinário?",
+    "Com 5 XP, compre um Avanço: suba uma perícia em 1 nível ou adquira um talento.",
+    "O talento pode ser de qualquer arquétipo."
+   ],
+   "watch": [],
+   "related": [
+    "Escolher e combinar talentos",
+    "Testes de perícia"
+   ]
+  },
+  "Testes de perícia": {
+   "group": "testes",
+   "when": "Qualquer ação incerta ou arriscada da personagem.",
+   "quick": [
+    [
+     "Dados (d6)",
+     "perícia + atributo (+ modificadores − Condições)"
+    ],
+    [
+     "Sucesso",
+     "cada 6; quase sempre basta 1"
+    ],
+    [
+     "Perícia 0",
+     "ainda pode tentar: rola só o atributo"
+    ]
+   ],
+   "steps": [
+    "Diga o que a personagem faz e o que quer alcançar (a Mestre pode pedir ajuste se for irreal).",
+    "Some perícia e atributo para saber quantos dados rolar.",
+    "Some todos os bônus (talentos, vantagem, itens) e subtraia 1 dado por Condição.",
+    "Role. Cada 6 é um sucesso."
+   ],
+   "watch": [
+    "Uma rolagem só por situação inteira (exceto em combate).",
+    "Falhar faz algo ruim acontecer; a Mestre deve avisar antes. Em casos perigosos, também vem uma Condição."
+   ],
+   "related": [
+    "Forçar a jogada",
+    "Dificuldade e ajuda",
+    "Efeitos das Condições nos testes"
+   ]
+  },
+  "Forçar a jogada": {
+   "group": "testes",
+   "when": "Acabou de falhar num teste e quer tentar de novo na hora.",
+   "quick": [
+    [
+     "Momento",
+     "logo após a falha"
+    ],
+    [
+     "Limite",
+     "1 vez por ação"
+    ],
+    [
+     "Custo",
+     "1 Condição"
+    ]
+   ],
+   "steps": [
+    "Mantenha os dados que deram 6 e rerrole os outros.",
+    "Escolha a Condição: física se usou Físico ou Precisão; mental se usou Lógica ou Empatia.",
+    "A nova Condição só afeta a personagem depois da rerrolagem."
+   ],
+   "watch": [
+    "Não vale para o dano de explosão.",
+    "Em disputa entre duas PJs com empate, ambas podem forçar a jogada."
+   ],
+   "related": [
+    "Efeitos das Condições nos testes",
+    "Jogadas opostas"
+   ]
+  },
+  "Dificuldade e ajuda": {
+   "group": "testes",
+   "when": "A tarefa é muito difícil ou alguém quer ajudar.",
+   "quick": [
+    [
+     "Desafiadora",
+     "2 sucessos"
+    ],
+    [
+     "Difícil",
+     "3 sucessos"
+    ],
+    [
+     "Ajuda",
+     "+1 por ajudante, máx. +3"
+    ]
+   ],
+   "steps": [
+    "Por padrão, 1 sucesso basta. Em casos extremos, a Mestre exige 2 ou 3.",
+    "A Mestre decide se a ajuda faz sentido; cada ajudante dá +1 (até +3)."
+   ],
+   "watch": [
+    "Ações simultâneas (paralelas) não se ajudam: cada um faz o próprio teste.",
+    "Algumas perícias deixam sucessos extras passar para outras pessoas."
+   ],
+   "related": [
+    "Bônus de equipamento e sucessos extras"
+   ]
+  },
+  "Jogadas opostas": {
+   "group": "testes",
+   "when": "Alguém tenta impedir você (guarda que percebe, amigo que discorda).",
+   "quick": [
+    [
+     "Quem vence",
+     "mais sucessos"
+    ],
+    [
+     "Empate",
+     "ninguém consegue nem falha"
+    ],
+    [
+     "PJ × PJ com empate",
+     "ambas podem forçar; novo empate = meio-termo com custo"
+    ]
+   ],
+   "steps": [
+    "Os dois lados rolam.",
+    "Quem tiver mais sucessos prevalece.",
+    "Se o oponente é PNJ, a Mestre pode usar consequências, Condições ou requisitos para o fracasso."
+   ],
+   "watch": [],
+   "related": [
+    "Forçar a jogada"
+   ]
+  },
+  "Escolher e combinar talentos": {
+   "group": "criacao",
+   "when": "Escolher ou comprar talentos.",
+   "quick": [
+    [
+     "Personagem nova",
+     "1 talento, entre os 3 do arquétipo"
+    ],
+    [
+     "Depois",
+     "compre com XP, de qualquer arquétipo"
+    ],
+    [
+     "Bônus",
+     "efeitos de talentos diferentes se somam"
+    ]
+   ],
+   "steps": [
+    "Na criação, escolha 1 entre os 3 talentos do arquétipo.",
+    "Ao longo do jogo, gaste XP para adquirir outros, de qualquer arquétipo.",
+    "Talentos que somam dados em testes de perícia ou de Medo acumulam."
+   ],
+   "watch": [],
+   "related": [
+    "Ganhar e gastar Pontos de Experiência"
+   ]
+  },
+  "Iniciativa e rodadas": {
+   "group": "combate",
+   "when": "O combate vai começar.",
+   "quick": [
+    [
+     "Cartas",
+     "10 cartas numeradas (1–10), uma por participante"
+    ],
+    [
+     "Ordem",
+     "menor valor joga primeiro"
+    ],
+    [
+     "Durante a luta",
+     "não se saca de novo"
+    ]
+   ],
+   "steps": [
+    "Embaralhe as cartas 1–10 e cada participante saca uma.",
+    "Deixe a carta à vista (PJs ao lado da ficha, Mestre diante dela).",
+    "Joga quem tem o menor número; depois o segundo menor, e assim por diante.",
+    "Terminada a rodada, repita na mesma ordem."
+   ],
+   "watch": [
+    "Inimigos idênticos podem usar uma carta só, em grupo.",
+    "Duas PJs que conseguem se falar podem trocar cartas no início da rodada, antes de qualquer ação.",
+    "A rodada dura poucos segundos e não é medida exata de tempo."
+   ],
+   "related": [
+    "Ações em combate",
+    "Esquivar e aparar ataques"
+   ]
+  },
+  "Zonas e distâncias": {
+   "group": "combate",
+   "when": "Medir alcance e posicionamento no combate.",
+   "quick": [
+    [
+     "Mesma zona",
+     "corpo a corpo"
+    ],
+    [
+     "1 zona",
+     "arremesso ou pistola"
+    ],
+    [
+     "2 zonas",
+     "rifle"
+    ]
+   ],
+   "steps": [
+    "Divida a cena em zonas; cada uma é uma área onde poucos passos levam ao corpo a corpo.",
+    "Marque no mapa onde há cobertura e obstáculos.",
+    "Obstáculos podem exigir uma ação ou um teste (por exemplo, FORÇA para passar por escombros)."
+   ],
+   "watch": [
+    "Circunstâncias difíceis, como a escuridão, podem exigir um sucesso extra.",
+    "Varie o cenário: paredes, portas trancadas e rios separam zonas."
+   ],
+   "related": [
+    "Movimento e tipos de ataque",
+    "Armadura e cobertura"
+   ]
+  },
+  "Ações em combate": {
+   "group": "combate",
+   "when": "Saber o que a personagem faz no turno.",
+   "quick": [
+    [
+     "Por rodada",
+     "1 ação lenta + 1 ação rápida"
+    ],
+    [
+     "Troca",
+     "2 rápidas no lugar da lenta"
+    ],
+    [
+     "Reação",
+     "ação rápida usada a qualquer momento"
+    ]
+   ],
+   "steps": [
+    "Ação lenta: leva mais tempo, em geral é um teste de perícia.",
+    "Ação rápida: gritar, sacar a arma, se mover; quase nunca exige teste.",
+    "Reações (esquivar, aparar) são ações rápidas que podem ser usadas antes ou depois do seu turno.",
+    "Descreva como a ação é feita."
+   ],
+   "watch": [],
+   "related": [
+    "Esquivar e aparar ataques",
+    "Movimento e tipos de ataque"
+   ]
+  },
+  "Esquivar e aparar ataques": {
+   "group": "combate",
+   "when": "Você é alvo de um ataque.",
+   "quick": [
+    [
+     "Esquivar",
+     "AGILIDADE (tiros e outros ataques à distância)"
+    ],
+    [
+     "Aparar",
+     "FORÇA ou COMBATE CORPO A CORPO (corpo a corpo), conforme esteja armada ou não"
+    ],
+    [
+     "Custo",
+     "ação rápida, como reação"
+    ]
+   ],
+   "steps": [
+    "Declare esquivar ou aparar antes de saber se o inimigo acertou.",
+    "Faça o teste de perícia.",
+    "Cada sucesso seu anula 1 sucesso do ataque. Se todos forem anulados, o ataque erra."
+   ],
+   "watch": [
+    "Dá para guardar a ação rápida para reagir mais tarde na rodada.",
+    "Sucessos sobrando permitem trocar cartas de iniciativa com o atacante."
+   ],
+   "related": [
+    "Ações em combate",
+    "Iniciativa e rodadas"
+   ]
+  },
+  "Arrasada e ferimentos críticos": {
+   "group": "dano",
+   "when": "Uma PJ chegou ao limite: ficou Arrasada.",
+   "quick": [
+    [
+     "Ao ficar Arrasada",
+     "sofre um ferimento crítico (D66)"
+    ],
+    [
+     "Física",
+     "falha tudo; só fala e se arrasta; cada novo ataque causa outro ferimento crítico"
+    ],
+    [
+     "Mental",
+     "não ataca nem faz rituais; ainda foge, apara, esquiva e fala"
+    ]
+   ],
+   "steps": [
+    "Role D66 na tabela física ou mental, escolhendo qual dado é a dezena.",
+    "Veja se o ferimento é fatal (físico) ou crônico (mental): se for, alguém precisa tratá-la a tempo.",
+    "Descreva a consequência."
+   ],
+   "watch": [
+    "Regras de ferimento crítico, Defeitos e Revelações valem só para PJs.",
+    "PNJ Arrasada está eliminada (morta, inconsciente ou desesperada, conforme o contexto)."
+   ],
+   "related": [
+    "Tabelas de ferimentos críticos",
+    "Tratar ferimentos críticos",
+    "Recuperação, Defeitos e Revelações"
+   ]
+  },
+  "Teste de Medo": {
+   "group": "dano",
+   "when": "Encontro com vaesen, magia ou cena horrível.",
+   "quick": [
+    [
+     "Dados",
+     "Lógica ou Empatia + nº de PJs na cena (máx. +3)"
+    ],
+    [
+     "Sucessos necessários",
+     "Valor de Medo: 1 assustadora · 2 terrível · 3 insuportável"
+    ],
+    [
+     "Falha",
+     "Aterrorizada: fugir, congelar, desmaiar ou atacar"
+    ]
+   ],
+   "steps": [
+    "A jogadora escolhe Lógica ou Empatia.",
+    "Some 1 dado por PJ presente (máx. +3); Arrasadas e já Aterrorizadas não contam.",
+    "Em combate, só conta quem está na mesma zona.",
+    "Compare os sucessos com o Valor de Medo."
+   ],
+   "watch": [
+    "Condições mentais reduzem os dados.",
+    "Em falha, é possível forçar a jogada ganhando uma Condição mental.",
+    "Alguns talentos facilitam o teste."
+   ],
+   "related": [
+    "Forçar a jogada",
+    "Efeitos das Condições nos testes"
+   ]
+  },
+  "Veneno, queda e privação": {
+   "group": "dano",
+   "when": "Veneno, queda de altura ou fome, sede e cansaço.",
+   "quick": [
+    [
+     "Veneno",
+     "toxicidade 3 fraco · 6 forte · 9+ extremo"
+    ],
+    [
+     "Queda (3 m ou mais)",
+     "ataque de (metros − 2) dados; cada sucesso = 1 Condição física; armadura não protege"
+    ],
+    [
+     "Privação",
+     "teste de FORÇA; falha = 1 Condição"
+    ]
+   ],
+   "steps": [
+    "Veneno: jogada oposta, dados da Mestre = toxicidade contra a FORÇA do alvo.",
+    "Vitória do alvo: sem dano. Empate: 1 Condição. Falha: Condições = sucessos da Mestre.",
+    "Nas rodadas seguintes, 1 Condição a menos a cada rodada.",
+    "O antídoto ou um teste de MEDICINA com os mesmos sucessos do veneno anula o efeito."
+   ],
+   "watch": [
+    "Na privação, a Mestre decide se a Condição é física ou mental."
+   ],
+   "related": [
+    "Arrasada e ferimentos críticos",
+    "Tratar Condições"
+   ]
+  },
+  "Tratar Condições": {
+   "group": "dano",
+   "when": "Depois da cena, o grupo quer curar Condições.",
+   "quick": [
+    [
+     "Física",
+     "MEDICINA"
+    ],
+    [
+     "Mental",
+     "INSPIRAÇÃO"
+    ],
+    [
+     "Resultado",
+     "3 Condições curadas por sucesso (também cura Arrasada)"
+    ]
+   ],
+   "steps": [
+    "Passem um dia inteiro em local seguro, com comida, bebida e descanso.",
+    "Faça o teste: cura 3 Condições, distribuídas como os pacientes escolherem; cada sucesso extra cura mais 3.",
+    "Falhar costuma gastar o dia inteiro."
+   ],
+   "watch": [
+    "Um paciente só recebe tratamento de uma pessoa por tipo (física ou mental).",
+    "Quem trata não pode ser tratado nesse dia.",
+    "Descansar numa cena com outras PJs cura 2 Condições (exceto Arrasada), 1 vez por dia."
+   ],
+   "related": [
+    "Tratar ferimentos críticos",
+    "Recursos e compras"
+   ]
+  },
+  "Recursos e compras": {
+   "group": "equipamento",
+   "when": "Obter armas, armaduras e outros itens, em geral antes do mistério.",
+   "quick": [
+    [
+     "Rolagem",
+     "dados = valor de Recursos"
+    ],
+    [
+     "Disponibilidade",
+     "nível de 1 a 5"
+    ],
+    [
+     "Bônus de padrão de vida",
+     "Recursos 1: −1 · 4–5: +1 · 6: +2 · 7: +3 · 8: +5"
+    ]
+   ],
+   "steps": [
+    "Na fase de preparação, cada jogador rola dados iguais aos seus Recursos.",
+    "Os sucessos compram equipamento, conforme o nível de disponibilidade do item.",
+    "No local, a compra também é possível com o mesmo método."
+   ],
+   "watch": [
+    "Serviços e estabelecimentos (clínica, hotel) contam como atividade especial paga com Recursos."
+   ],
+   "related": [
+    "Tabelas de equipamento e serviços",
+    "Tratar Condições"
+   ]
+  },
+  "Armadura e cobertura": {
+   "group": "equipamento",
+   "when": "A personagem se protege de dano com armadura ou abrigo.",
+   "quick": [
+    [
+     "Proteção",
+     "rola N dados; cada sucesso reduz o dano em 1"
+    ],
+    [
+     "Armadura",
+     "penalidade em AGILIDADE"
+    ],
+    [
+     "Cobertura",
+     "ação rápida"
+    ]
+   ],
+   "steps": [
+    "Ao ser atingida, role os dados da Proteção da armadura ou da cobertura.",
+    "Cada sucesso reduz 1 de dano.",
+    "Armadura leve, média e pesada têm Proteção, penalidade de AGILIDADE e disponibilidade na tabela."
+   ],
+   "watch": [
+    "A cobertura não protege contra inimigos na mesma zona (exceto explosões).",
+    "Atrás de cobertura ainda dá para esquivar."
+   ],
+   "related": [
+    "Zonas e distâncias",
+    "Dano por explosão e fogo"
+   ]
+  },
+  "Desenvolvimento da base": {
+   "group": "base",
+   "when": "O grupo voltou à base depois de um mistério.",
+   "quick": [
+    [
+     "Ganho",
+     "1 ponto de Desenvolvimento por pergunta respondida “sim”"
+    ],
+    [
+     "Pontos não gastos",
+     "ficam guardados"
+    ],
+    [
+     "Ameaça ao comprar",
+     "rolagem secreta com dados = custo da Melhoria"
+    ]
+   ],
+   "steps": [
+    "Respondam juntos às perguntas de Desenvolvimento sobre o mistério.",
+    "Cada resposta afirmativa dá 1 ponto.",
+    "Antes do próximo mistério, gaste pontos em Melhorias.",
+    "A cada compra, a Mestre rola dados iguais ao custo; qualquer sucesso traz uma ameaça. Compras múltiplas somam 1 dado extra cada."
+   ],
+   "watch": [
+    "No início do jogo o grupo já tem a biblioteca da Sociedade e o mordomo Algot Frisk.",
+    "Também se resolvem aqui os Defeitos e Revelações do mistério."
+   ],
+   "related": [
+    "Comprar e usar melhorias da base",
+    "Ameaças à base",
+    "Recuperação, Defeitos e Revelações"
+   ]
+  },
+  "Comprar e usar melhorias da base": {
+   "group": "base",
+   "when": "Adquirir instalações, contatos ou pessoal para a sede.",
+   "quick": [
+    [
+     "Tipos",
+     "Instalações · Contatos · Pessoal"
+    ],
+    [
+     "Cada Melhoria tem",
+     "Pré-requisito, Custo, Função e Ativo"
+    ],
+    [
+     "Uso",
+     "1 vez por mistério (Enfermaria, Capela, Câmara do Tesouro: 1 vez por PJ)"
+    ]
+   ],
+   "steps": [
+    "Confira o pré-requisito (Recursos significa que uma PJ tem pelo menos aquele valor).",
+    "Pague o custo em Pontos de Desenvolvimento.",
+    "Use a Função e o Ativo uma vez por mistério."
+   ],
+   "watch": [
+    "Algumas Melhorias podem ser compradas várias vezes, o que dá mais usos.",
+    "O grupo pode criar Melhorias próprias."
+   ],
+   "related": [
+    "Desenvolvimento da base",
+    "Ameaças à base"
+   ]
+  },
+  "Magia de personagens jogadoras": {
+   "group": "vaesen",
+   "when": "Uma PJ usa uma fonte de magia.",
+   "quick": [
+    [
+     "Perícia",
+     "concedida pela fonte"
+    ],
+    [
+     "Rolagem",
+     "só a perícia, sem somar atributo"
+    ],
+    [
+     "Custo",
+     "ação lenta"
+    ]
+   ],
+   "steps": [
+    "A fonte de magia concede a perícia e os efeitos disponíveis.",
+    "Role a perícia, sem atributo, usando uma ação lenta."
+   ],
+   "watch": [
+    "Essa perícia não sobe com experiência."
+   ],
+   "related": [
+    "Poderes, itens mágicos e itens de poder"
+   ]
+  },
+  "Atributos e combate de Vaesen": {
+   "group": "vaesen",
+   "when": "A Mestre precisa ler ou usar um vaesen.",
+   "quick": [
+    [
+     "Poder",
+     "atacar, levantar peso, resistir a fogo e dano"
+    ],
+    [
+     "Controle Corporal",
+     "evitar ataques, perseguir, fugir, esgueirar"
+    ],
+    [
+     "Magia · Manipulação · Medo",
+     "conjurar/resistir · enganar/persuadir · sucessos do Teste de Medo"
+    ]
+   ],
+   "steps": [
+    "Cada vaesen tem 5 atributos: Poder, Controle Corporal, Magia, Manipulação e Medo.",
+    "O Medo diz quantos sucessos as PJs precisam ao vê-lo pela primeira vez."
+   ],
+   "watch": [
+    "Vaesen raramente lutam até o fim: evitam o confronto, usam magia de longe e escondem a posição.",
+    "Muitas vezes dá para evitar a luta distraindo, enganando ou se esgueirando."
+   ],
+   "related": [
+    "Teste de Medo",
+    "Poderes, itens mágicos e itens de poder"
+   ]
+  },
+  "Banimento e rituais": {
+   "group": "vaesen",
+   "when": "O grupo quer expulsar, prender ou matar um vaesen.",
+   "quick": [
+    [
+     "Dados",
+     "nenhum: as jogadoras descrevem o ritual"
+    ],
+    [
+     "Em combate",
+     "decida quantas rodadas o ritual leva"
+    ],
+    [
+     "Efeito",
+     "imediato ao completar; poderes mágicos cessam"
+    ]
+   ],
+   "steps": [
+    "O ritual é específico de cada vaesen (e pode variar entre vaesen do mesmo tipo).",
+    "As jogadoras descrevem o que fazem; se for correto, funciona.",
+    "O vaesen some, adormece ou é forçado a sair."
+   ],
+   "watch": [
+    "Os relatos populares são parciais: cada ficha tem um segredo que complica o ritual.",
+    "Dê pistas aos poucos, do senso comum ao detalhe."
+   ],
+   "related": [
+    "Pistas e pistas periféricas"
+   ]
+  },
+  "Contagem regressiva do mistério": {
+   "group": "misterio",
+   "when": "A Mestre quer controlar o ritmo e a escalada do mistério.",
+   "quick": [
+    [
+     "Passos",
+     "normalmente 3, até a catástrofe"
+    ],
+    [
+     "Avança quando",
+     "o ritmo está lento, o grupo está perdido ou o fim está perto"
+    ],
+    [
+     "Pode ter",
+     "uma para o conflito primário e outra para o secundário"
+    ]
+   ],
+   "steps": [
+    "Pense em como a situação piora passo a passo se ninguém agir.",
+    "Ligue os passos à transgressão que trouxe o grupo ao local.",
+    "Avance um passo e transforme-o numa cena (o grupo vê, está por perto ou ouve falar).",
+    "A catástrofe é o que acontece se nada for feito."
+   ],
+   "watch": [
+    "Também pode haver uma contagem para a ferocidade da criatura: quanto mais perto do ritual, mais feroz."
+   ],
+   "related": [
+    "Pistas e pistas periféricas"
+   ]
+  },
+  "Classe social": {
+   "group": "regional",
+   "when": "Interação com PNJs de classe diferente (regra opcional de Britain & Ireland).",
+   "quick": [
+    [
+     "Classes",
+     "nobreza · classe média · classe trabalhadora"
+    ],
+    [
+     "Em testes de Empatia",
+     "+1 por nível abaixo da sua, −1 por nível acima"
+    ],
+    [
+     "Exemplo",
+     "nobre falando com trabalhador +2; ele, −2"
+    ]
+   ],
+   "steps": [
+    "Ao interagir com um PNJ, compare as classes.",
+    "Aplique +1 por nível de classe abaixo da sua ou −1 por nível acima ao teste de Empatia."
+   ],
+   "watch": [],
+   "related": [
+    "Dialeto e forasteiros em Old Meg"
+   ]
+  },
+  "Condições para atravessar mundos": {
+   "group": "regional",
+   "when": "Levar a personagem ao reino feérico.",
+   "quick": [
+    [
+     "Entradas",
+     "entrada oculta, travessia acidental ou condução por outra criatura"
+    ],
+    [
+     "Passagens",
+     "lagos, cavernas e montes feéricos"
+    ]
+   ],
+   "steps": [
+    "Escolha como o grupo entra: uma entrada oculta, um erro de caminho ou guiado por outra criatura."
+   ],
+   "watch": [
+    "O tempo corre de modo diferente do mundo mortal.",
+    "Comer a comida de lá pode prender a pessoa ou adoecê-la."
+   ],
+   "related": []
+  },
+  "Perícias e talentos por esporte": {
+   "group": "regional",
+   "when": "Escolher o esporte de uma personagem Atleta (Britain & Ireland).",
+   "quick": [
+    [
+     "AGILIDADE",
+     "atletismo, críquete, tênis"
+    ],
+    [
+     "FORÇA",
+     "boxe, rúgbi, luta"
+    ],
+    [
+     "COMBATE CORPO A CORPO",
+     "esgrima"
+    ]
+   ],
+   "steps": [
+    "Escolha o esporte; ele define a perícia principal.",
+    "O esporte também define o terceiro talento disponível.",
+    "Consulte a tabela da fonte para os nomes exatos."
+   ],
+   "watch": [],
+   "related": [
+    "Arquétipos do livro básico"
+   ]
+  },
+  "Alma separável": {
+   "group": "regional",
+   "when": "Criatura que escondeu a própria alma (Terras Altas Escocesas).",
+   "quick": [
+    [
+     "Alma escondida",
+     "a criatura nunca ganha Condição em combate"
+    ],
+    [
+     "Alma encontrada",
+     "1 Condição basta para destruí-la"
+    ],
+    [
+     "Quem tem",
+     "feiticeiros, alguns gigantes; fadas não"
+    ]
+   ],
+   "steps": [
+    "A criatura esconde a alma em um lugar muito protegido.",
+    "O grupo precisa enganar o dono a revelar onde ou ter ajuda de um parceiro próximo.",
+    "Chegar ao esconderijo é perigoso; depois, tomar a alma é um processo complexo."
+   ],
+   "watch": [],
+   "related": [
+    "Atributos e combate de Vaesen"
+   ]
+  },
+  "Dialeto e forasteiros em Old Meg": {
+   "group": "regional",
+   "when": "Regra opcional do mistério de Old Meg: dialeto local e forasteiros.",
+   "quick": [
+    [
+     "Teste",
+     "APRENDIZADO na primeira conversa com um PNJ"
+    ],
+    [
+     "Penalidades",
+     "dialeto no teste · forasteiros em Empatia"
+    ],
+    [
+     "Longby",
+     "pode reduzir ou eliminar as penalidades"
+    ]
+   ],
+   "steps": [
+    "Peça um teste de APRENDIZADO quando a personagem falar pela primeira vez com um PNJ.",
+    "A Mestre pode penalizar o teste pelo dialeto e impor penalidade de Empatia por serem forasteiros.",
+    "Longby pode reduzir ou eliminar as penalidades e dispensar o teste."
+   ],
+   "watch": [],
+   "related": [
+    "Classe social"
+   ]
+  },
+  "Tabelas de profissões e eventos britânicos": {
+   "group": "regional",
+   "when": "Criar PJ britânica pelos Caminhos da Vida.",
+   "quick": [
+    [
+     "Dado",
+     "D66, modificado por Recursos"
+    ],
+    [
+     "Uso",
+     "tabela de profissão expandida e eventos de vida do suplemento"
+    ]
+   ],
+   "steps": [
+    "Siga o método de Caminhos da Vida do livro básico.",
+    "Use a tabela expandida do suplemento no passo da Profissão.",
+    "Consulte o PDF para os eventos de cada profissão."
+   ],
+   "watch": [],
+   "related": [
+    "Caminhos da Vida: criação por tabelas"
+   ]
+  },
+  "Origem social na Carpatia": {
+   "group": "regional",
+   "when": "Dar uma origem social local à personagem (opcional).",
+   "quick": [
+    [
+     "Tipo",
+     "opcional, de interpretação"
+    ]
+   ],
+   "steps": [
+    "Na criação, defina uma origem ou estrato social local.",
+    "Use a escolha para orientar a relação com PNJs."
+   ],
+   "watch": [],
+   "related": [
+    "Criação de personagem e pontos iniciais"
+   ]
+  },
+  "Limites de instalações da Powder Gate": {
+   "group": "regional",
+   "when": "Comprar instalações na sede da Powder Gate.",
+   "quick": [
+    [
+     "Por andar",
+     "até 2 instalações"
+    ],
+    [
+     "Total",
+     "8 (4 andares)"
+    ]
+   ],
+   "steps": [
+    "Conte as instalações do andar antes de comprar.",
+    "Se já houver 2, substitua uma existente."
+   ],
+   "watch": [
+    "Algumas melhorias podem estar indisponíveis; veja a lista no PDF."
+   ],
+   "related": [
+    "Comprar e usar melhorias da base"
+   ]
+  },
+  "Caçador de vampiros": {
+   "group": "regional",
+   "when": "Escolher o arquétipo Caçador de vampiros (Mythic Carpathia, beta).",
+   "quick": [
+    [
+     "Atributo principal",
+     "Precisão"
+    ],
+    [
+     "Perícia principal",
+     "Combate Corpo a Corpo"
+    ],
+    [
+     "Talentos",
+     "Ódio aos sugadores de sangue · Empalador · Na caçada"
+    ],
+    [
+     "Recursos",
+     "1–3"
+    ]
+   ],
+   "steps": [
+    "Equipamento: estaca, colar com cruz, besta e espada.",
+    "Escolha nome, motivação, trauma, segredo e relações nas sugestões ou invente."
+   ],
+   "watch": [],
+   "related": [
+    "Arquétipos do livro básico"
+   ]
+  },
+  "Segurar e imobilizar": {
+   "group": "combate",
+   "when": "Agarrar ou prender um oponente.",
+   "quick": [
+    [
+     "Teste",
+     "FORÇA contra FORÇA"
+    ],
+    [
+     "Reação do alvo",
+     "tentar se libertar com FORÇA"
+    ],
+    [
+     "Se prender",
+     "só pode se libertar ou gritar"
+    ]
+   ],
+   "steps": [
+    "Faça um teste de FORÇA.",
+    "O oponente pode reagir para se libertar com FORÇA.",
+    "Se você vencer, ele fica contido."
+   ],
+   "watch": [],
+   "related": [
+    "Ações em combate"
+   ]
+  },
+  "Fuga, perseguição e emboscada": {
+   "group": "combate",
+   "when": "Fugir da luta, impedir uma fuga ou atacar de surpresa.",
+   "quick": [
+    [
+     "Fuga",
+     "AGILIDADE: sucesso sai da zona"
+    ],
+    [
+     "Perseguidor",
+     "reação + AGILIDADE; cada sucesso anula 1 do fugitivo"
+    ],
+    [
+     "Emboscada",
+     "FURTIVIDADE contra VIGILÂNCIA"
+    ]
+   ],
+   "steps": [
+    "Fuga: teste de AGILIDADE; se falhar, fica na zona. Não dá para atravessar zona com inimigo.",
+    "Quem está na mesma zona pode reagir: se anular todos os seus sucessos, você fica; ambos andam uma zona.",
+    "Emboscada: rola FURTIVIDADE contra VIGILÂNCIA; sucesso dá carta de iniciativa extra (fica a melhor) e +1 por sucesso extra na primeira ação."
+   ],
+   "watch": [
+    "Emboscada falha: o oponente saca a carta extra.",
+    "Várias emboscando: só uma faz o teste, vale para todas."
+   ],
+   "related": [
+    "Iniciativa e rodadas",
+    "Zonas e distâncias"
+   ]
+  },
+  "Tratar ferimentos críticos": {
+   "group": "dano",
+   "when": "Uma PJ Arrasada precisa de socorro antes do limite de tempo.",
+   "quick": [
+    [
+     "Teste",
+     "MEDICINA ou INSPIRAÇÃO"
+    ],
+    [
+     "Tempo",
+     "uma rodada"
+    ],
+    [
+     "Resultado",
+     "deixa de estar Arrasada; mantém as outras Condições"
+    ]
+   ],
+   "steps": [
+    "Se o ferimento pode matar ou ficar crônico, alguém trata com MEDICINA ou INSPIRAÇÃO antes do prazo.",
+    "Cada sucesso extra cura mais 1 Condição."
+   ],
+   "watch": [],
+   "related": [
+    "Arrasada e ferimentos críticos",
+    "Tratar Condições"
+   ]
+  },
+  "Poderes, itens mágicos e itens de poder": {
+   "group": "vaesen",
+   "when": "Ataques e poderes específicos de vaesen, e itens usados contra eles.",
+   "quick": [
+    [
+     "Item de poder",
+     "role 1D6; resultado 1 quebra ou para de funcionar"
+    ],
+    [
+     "Item mágico",
+     "pertence a um vaesen; usar traz risco"
+    ]
+   ],
+   "steps": [
+    "Ataques físicos: o jeito da criatura causar dano.",
+    "Poderes específicos: voar, mudar de forma, mais ações, sacar duas cartas de iniciativa e agir duas vezes por rodada.",
+    "Itens de poder protegem contra vaesen; podem ser achados ou feitos na base.",
+    "Itens mágicos ficam com a criatura; depois de bani-la, usar um sempre traz risco (a Mestre rola em segredo)."
+   ],
+   "watch": [],
+   "related": [
+    "Atributos e combate de Vaesen"
+   ]
+  },
+  "Escrivães da Powder Gate: custo e função": {
+   "group": "regional",
+   "when": "Os escrivães de Powder Gate (Mythic Carpathia).",
+   "quick": [
+    [
+     "Custo",
+     "0 Pontos de Desenvolvimento"
+    ],
+    [
+     "Disponibilidade",
+     "desde o início"
+    ]
+   ],
+   "steps": [
+    "Os dois escrivães têm a mesma função de jogo: cuidar da administração e das instalações."
+   ],
+   "watch": [],
+   "related": [
+    "Limites de instalações da Powder Gate"
+   ]
+  },
+  "Efeitos das Condições nos testes": {
+   "group": "dano",
+   "when": "Contar Condições da PJ e calcular o efeito nos dados.",
+   "quick": [
+    [
+     "Físicas",
+     "Exausta, Abatida, Ferida (Físico e Precisão)"
+    ],
+    [
+     "Mentais",
+     "Furiosa, Amedrontada, Apática (Lógica e Empatia)"
+    ],
+    [
+     "Efeito",
+     "−1 dado por Condição do tipo; sempre rola pelo menos 1"
+    ]
+   ],
+   "steps": [
+    "Cada Condição tira 1 dado nos testes dos atributos do mesmo tipo.",
+    "As Condições se acumulam.",
+    "Ao receber uma 4ª Condição do mesmo tipo, a PJ fica Arrasada: não faz ação alguma e sofre ferimento crítico."
+   ],
+   "watch": [
+    "Se um fracasso trava a história, a Mestre pode usar consequências, Condições ou requisitos."
+   ],
+   "related": [
+    "Arrasada e ferimentos críticos",
+    "Tratar Condições"
+   ]
+  },
+  "Bônus de equipamento e sucessos extras": {
+   "group": "testes",
+   "when": "Um item ajuda no teste ou você rolou mais sucessos do que precisava.",
+   "quick": [
+    [
+     "Itens",
+     "normalmente +1; raramente passa de +3"
+    ],
+    [
+     "Sucessos extras",
+     "cada efeito custa 1 sucesso; a Mestre decide"
+    ]
+   ],
+   "steps": [
+    "Item adequado soma seu bônus ao teste.",
+    "Sucessos além do necessário podem gerar efeitos (por exemplo, ajudar quem falhou) ou até curar 1 Condição, a critério da Mestre."
+   ],
+   "watch": [],
+   "related": [
+    "Testes de perícia",
+    "Tabelas de equipamento e serviços"
+   ]
+  },
+  "Movimento e tipos de ataque": {
+   "group": "combate",
+   "when": "Mover-se e escolher a perícia do ataque.",
+   "quick": [
+    [
+     "Mover na zona ou para zona adjacente",
+     "1 ação rápida"
+    ],
+    [
+     "Desarmado",
+     "FORÇA"
+    ],
+    [
+     "Arma corpo a corpo / à distância",
+     "COMBATE CORPO A CORPO / COMBATE À DISTÂNCIA"
+    ]
+   ],
+   "steps": [
+    "Gaste uma ação rápida para se posicionar na zona ou entrar numa zona adjacente.",
+    "Escolha a perícia pelo tipo de ataque.",
+    "Armas à distância: o alcance é o nº de zonas; 0 só atinge a mesma zona."
+   ],
+   "watch": [
+    "Cobertura ou distância na zona podem exigir uma ação rápida extra para se aproximar.",
+    "Revólver 0–1; rifle 1–3."
+   ],
+   "related": [
+    "Zonas e distâncias",
+    "Tabelas de armas e alcance"
+   ]
+  },
+  "Tabelas de ferimentos críticos": {
+   "group": "dano",
+   "when": "Rolar o ferimento crítico depois que a PJ ficou Arrasada.",
+   "quick": [
+    [
+     "Dado",
+     "D66"
+    ],
+    [
+     "Física",
+     "coluna Fatal; efeito é um Defeito (−1 em uma perícia)"
+    ],
+    [
+     "Mental",
+     "coluna Crônica"
+    ]
+   ],
+   "steps": [
+    "Escolha qual dado é a dezena e role.",
+    "Leia o ferimento, o limite de tempo e o efeito.",
+    "Aplique o Defeito (ou Revelação) à ficha."
+   ],
+   "watch": [
+    "Cada Defeito reduz uma perícia em 1 e pode se tornar permanente."
+   ],
+   "related": [
+    "Arrasada e ferimentos críticos",
+    "Recuperação, Defeitos e Revelações"
+   ]
+  },
+  "Dano por explosão e fogo": {
+   "group": "dano",
+   "when": "Explosivos e fogo no combate.",
+   "quick": [
+    [
+     "Explosão",
+     "atinge toda a zona; dados = Poder da Explosão; não se força"
+    ],
+    [
+     "Arremesso",
+     "COMBATE À DISTÂNCIA, alcance 1–2"
+    ],
+    [
+     "Fogo",
+     "dano e 1 Condição; FORÇA reduz o dano; AGILIDADE (ação lenta) apaga"
+    ]
+   ],
+   "steps": [
+    "Explosão: role dados iguais ao Poder; sucessos = dano a quem está na zona. Armadura não protege; cobertura sim.",
+    "Se o arremesso falhar, a carga cai numa zona adjacente aleatória.",
+    "Fogo: dano no início de cada rodada até apagar; o alvo faz FORÇA automático para reduzir o dano."
+   ],
+   "watch": [
+    "Enquanto queima, só pode apagar o fogo, fugir ou gritar.",
+    "Sucessos para apagar se mantêm entre rodadas."
+   ],
+   "related": [
+    "Armadura e cobertura",
+    "Zonas e distâncias"
+   ]
+  },
+  "Tabelas de equipamento e serviços": {
+   "group": "equipamento",
+   "when": "Consultar bônus, disponibilidade e efeito de um item.",
+   "quick": [
+    [
+     "Colunas",
+     "item · bônus · disponibilidade · efeito"
+    ]
+   ],
+   "steps": [
+    "Procure o item na tabela.",
+    "O bônus soma ao teste indicado; a disponibilidade é o nível exigido na compra."
+   ],
+   "watch": [],
+   "related": [
+    "Recursos e compras",
+    "Bônus de equipamento e sucessos extras"
+   ]
+  },
+  "Tabelas de armas e alcance": {
+   "group": "equipamento",
+   "when": "Consultar dano, alcance e perícia de uma arma.",
+   "quick": [
+    [
+     "Colunas",
+     "dano · alcance · bônus · disponibilidade · perícia"
+    ],
+    [
+     "Exemplos",
+     "rapieira dano 1 +2; rifle dano 2 alcance 1–3 +2"
+    ]
+   ],
+   "steps": [
+    "Procure a arma na tabela e use a perícia indicada.",
+    "O alcance diz quantas zonas ela atinge."
+   ],
+   "watch": [],
+   "related": [
+    "Movimento e tipos de ataque",
+    "Zonas e distâncias"
+   ]
+  },
+  "Ameaças à base": {
+   "group": "base",
+   "when": "A rolagem de ameaça ao comprar uma Melhoria deu sucesso.",
+   "quick": [
+    [
+     "Quem escolhe",
+     "a Mestre, da lista ou inventada"
+    ],
+    [
+     "Escalada",
+     "sucessos extras podem deixar a ameaça mais forte"
+    ],
+    [
+     "Ritmo",
+     "pode durar vários mistérios"
+    ]
+   ],
+   "steps": [
+    "Escolha ou crie a ameaça e dê nome ao PNJ ou vaesen envolvido.",
+    "Prepare uma contagem regressiva para ela.",
+    "Mostre-a numa cena na base ou em Upsala, ou revele-a de uma vez e deixe o grupo reagir."
+   ],
+   "watch": [],
+   "related": [
+    "Desenvolvimento da base",
+    "Contagem regressiva do mistério"
+   ]
+  },
+  "Recuperação, Defeitos e Revelações": {
+   "group": "base",
+   "when": "O mistério terminou: Defeitos e Revelações viram permanentes ou somem.",
+   "quick": [
+    [
+     "Física",
+     "dados = Físico + Precisão"
+    ],
+    [
+     "Mental",
+     "dados = Lógica + Empatia"
+    ],
+    [
+     "Cada sucesso",
+     "cura 1 Defeito ou torna 1 Revelação permanente"
+    ]
+   ],
+   "steps": [
+    "Role a recuperação física e/ou mental, conforme o que a PJ tem.",
+    "Use cada sucesso para curar um Defeito ou fixar uma Revelação.",
+    "Falha: os Defeitos se tornam permanentes e as Revelações desaparecem."
+   ],
+   "watch": [
+    "Defeitos e Revelações permanentes nunca saem.",
+    "Melhorias da base podem permitir forçar a jogada ou dados extras.",
+    "Condições adquiridas no mistério não afetam esta rolagem."
+   ],
+   "related": [
+    "Tabelas de ferimentos críticos",
+    "Desenvolvimento da base"
+   ]
+  },
+  "Perfis e resistências de PNJs": {
+   "group": "misterio",
+   "when": "A Mestre precisa de um PNJ pronto.",
+   "quick": [
+    [
+     "Resistência de PNJ",
+     "menor 1/1 · com nome 2/2 · único 3/3 (física/mental)"
+    ],
+    [
+     "Tabela",
+     "atributos, resistências e perícias por tipo de PNJ"
+    ]
+   ],
+   "steps": [
+    "Escolha o PNJ na tabela (caçadora, médica, jornalista, policial e outros).",
+    "Use seus atributos, resistências e perícias principais.",
+    "A Resistência indica quantas Condições ele aguenta."
+   ],
+   "watch": [],
+   "related": [
+    "Atributos e ataques de animais"
+   ]
+  },
+  "Atributos e ataques de animais": {
+   "group": "misterio",
+   "when": "Animais em combate.",
+   "quick": [
+    [
+     "Ataque",
+     "PODER"
+    ],
+    [
+     "Esgueirar e desviar",
+     "CONTROLE CORPORAL"
+    ],
+    [
+     "Ações",
+     "1 lenta + 1 rápida"
+    ]
+   ],
+   "steps": [
+    "Consulte a tabela de animais para Resistência e dano do ataque."
+   ],
+   "watch": [],
+   "related": [
+    "Perfis e resistências de PNJs"
+   ]
+  },
+  "Criação de um Vaesen para o mistério": {
+   "group": "misterio",
+   "when": "A Mestre vai criar a própria criatura.",
+   "quick": [
+    [
+     "Escreva",
+     "Características, Magia, Condições, ataques, ritual e segredo"
+    ]
+   ],
+   "steps": [
+    "Pesquise o vaesen e suas origens.",
+    "Se quiser, baseie-se numa criatura do livro.",
+    "Escreva as Características, a Magia, as Condições, os ataques, o ritual e o segredo.",
+    "Ajuste o que copiou do modelo."
+   ],
+   "watch": [
+    "Pense nas forças e fraquezas do vaesen."
+   ],
+   "related": [
+    "Banimento e rituais",
+    "Atributos e combate de Vaesen"
+   ]
+  },
+  "Pistas e pistas periféricas": {
+   "group": "misterio",
+   "when": "O grupo está sem pistas ou não está conectando as informações.",
+   "quick": [
+    [
+     "Pistas centrais",
+     "necessárias para entender e resolver o mistério"
+    ],
+    [
+     "Pistas periféricas",
+     "dão contexto"
+    ]
+   ],
+   "steps": [
+    "Garanta que as informações indispensáveis estejam ao alcance do grupo.",
+    "Se o grupo não ligar os pontos, crie mais pistas durante o jogo."
+   ],
+   "watch": [
+    "Cabe à Mestre evitar que a história empaque."
+   ],
+   "related": [
+    "Contagem regressiva do mistério"
+   ]
+  }
+ }
+}

@@ -26,7 +26,8 @@ A janela WPF inicia `transcribe.py` com o `python.exe` do PATH. Esse script coor
 | `experiments/desktop-preview/` | Aplicativo WPF (janela principal, Biblioteca de Vaesen, notificação) |
 | `experiments/process-loopback/` | Bancada: captura em C++, worker de ASR, scripts Python e testes |
 | `experiments/process-loopback/build/` | Binários e modelos baixados (fora do Git) |
-| `experiments/process-loopback/local-rules/` | Índice dos seus PDFs e traduções geradas (fora do Git) |
+| `experiments/process-loopback/local-rules/` | Índice dos seus PDFs, traduções e fichas estruturadas (fora do Git) |
+| `experiments/desktop-preview/vaesen-guide.json` | Guia dos 52 procedimentos de Vaesen, com texto próprio (no Git) |
 | `docs/` | Visão, requisitos, escopo do MVP, arquitetura, riscos e roadmap |
 
 ## Passo a passo
@@ -113,7 +114,25 @@ python experiments/process-loopback/translate_vaesen.py --model 'C:\caminho\tran
 
 Roda na CPU, offline, pode ser retomado e salva `local-rules/vaesen-pt-br.json`. Reabra o Whisper depois de gerar.
 
-### 6. Ative a busca por significado (opcional, Vaesen)
+### 6. Organize as fichas em cartões padronizados (Vaesen)
+
+Depois de importar os PDFs (e, se quiser, gerar a tradução), estruture as fichas de criaturas, rituais, talentos, melhorias e arquétipos:
+
+```powershell
+python experiments/process-loopback/build_vaesen_cards.py --report
+```
+
+O script lê o índice local, grava `experiments/process-loopback/local-rules/vaesen-cards.json` (fora do Git, pois deriva dos livros) e informa quantas fichas de cada categoria ganharam cartão. As que ficarem de fora continuam aparecendo como trecho do livro. Rode de novo sempre que reimportar os PDFs ou gerar uma nova tradução.
+
+Os 52 procedimentos (iniciativa, Medo, forçar a jogada etc.) já vêm prontos no repositório, em `experiments/desktop-preview/vaesen-guide.json`, com texto próprio. Para gerar o guia impresso a partir dele:
+
+```powershell
+python experiments/process-loopback/export_vaesen_guide.py
+```
+
+O resultado é [`docs/VAESEN_GUIA_DO_MESTRE.md`](docs/VAESEN_GUIA_DO_MESTRE.md).
+
+### 7. Ative a busca por significado (opcional, Vaesen)
 
 Sem ela, a busca por nomes e o contexto de tópicos continuam funcionando.
 
@@ -123,7 +142,7 @@ pip install onnxruntime tokenizers numpy
 
 Baixe da [conversão ONNX do multilingual E5 Small](https://huggingface.co/Xenova/multilingual-e5-small/tree/761b726) os arquivos `tokenizer.json` e `onnx/model_quantized.onnx` e coloque-os em `experiments\process-loopback\build\semantic\` (o `model_quantized.onnx` dentro da subpasta `onnx\`).
 
-### 7. Configure o interpretador local (opcional, Vaesen)
+### 8. Configure o interpretador local (opcional, Vaesen)
 
 O interpretador usa um modelo de linguagem local para escolher a referência certa a partir das últimas falas.
 
@@ -135,7 +154,7 @@ O interpretador usa um modelo de linguagem local para escolher a referência cer
    - **DeepSeek R1 8B:** `DeepSeek-R1-0528-Qwen3-8B-Q4_K_M.gguf`, 5,03 GB (SHA-256 `e0c2f118fd59f3a16f20d18b0e7f79e960c84bc8c66d94fd71a691e05151d54f`). [Download](https://huggingface.co/bartowski/deepseek-ai_DeepSeek-R1-0528-Qwen3-8B-GGUF/blob/main/deepseek-ai_DeepSeek-R1-0528-Qwen3-8B-Q4_K_M.gguf)
 3. Na janela do Whisper, escolha o modelo em **Interpretador local** antes de iniciar. O servidor sobe em `127.0.0.1` e é encerrado junto com a sessão.
 
-### 8. Confira a pasta `build`
+### 9. Confira a pasta `build`
 
 Ao final, a árvore deve ficar assim (itens de Vaesen são opcionais):
 
@@ -148,10 +167,10 @@ experiments/process-loopback/
 │   │   └── runtime/Release/asr-worker.exe (+ whisper.dll e demais DLLs)
 │   ├── semantic/  tokenizer.json, onnx/model_quantized.onnx
 │   └── context/   runtime/, runtime-vulkan/, *.gguf
-└── local-rules/   vaesen.json, vaesen-pt-br.json
+└── local-rules/   vaesen.json, vaesen-pt-br.json, vaesen-cards.json
 ```
 
-### 9. Rode o aplicativo
+### 10. Rode o aplicativo
 
 Na raiz do repositório:
 
@@ -160,6 +179,19 @@ dotnet run -c Release --project experiments/desktop-preview
 ```
 
 O app localiza a bancada subindo as pastas a partir do executável até achar `experiments/process-loopback/transcribe.py`, então abra-o sempre a partir do repositório.
+
+## Como os cards da Biblioteca são organizados
+
+Todo tópico segue a mesma ordem, para leitura rápida no topo e leitura completa embaixo:
+
+1. **Leitura rápida:** uma frase com a situação em que a regra se aplica e chips com os números-chave (dados, sucessos, custo, alcance).
+2. **Como fazer:** passos numerados, na ordem em que a Mestre age.
+3. **Atenção:** exceções e armadilhas.
+4. **Veja também:** tópicos relacionados.
+
+As fichas de criaturas, rituais, talentos, melhorias e arquétipos usam o mesmo desenho com campos próprios: atributos e Medo nos chips, depois poderes, combate, Condições e ritual. O botão **Ver trecho do livro** mostra o texto original e **Ver ficha organizada** volta ao cartão. A categoria da busca agrupa os procedimentos por assunto (Criação, Testes, Combate, Dano e Medo, Equipamento, Base, Vaesen e magia, Preparar o mistério, Suplementos).
+
+O mesmo `vaesen-guide.json` alimenta o interpretador local: a frase "quando" de cada tópico entra na busca e na descrição enviada ao modelo, o que ajuda a casar falas de mesa com a regra certa.
 
 ## Usando o app
 
@@ -179,10 +211,11 @@ Os cartões respeitam um intervalo mínimo de 90 s e no máximo quatro por hora.
 | --- | --- |
 | "Prepare o executável da bancada e o modelo local…" | Faltam `audio-capture.exe`, o modelo `.bin` ou `asr-worker.exe` (passos 2 e 3) |
 | "Importe os três PDFs de Vaesen antes de começar" | Rode o passo 4 ou use D&D |
+| Fichas aparecem só como trecho do livro | Rode o passo 6 e reabra o Whisper |
 | "Abra a prévia a partir do repositório Whisper" | Rode `dotnet run` de dentro da pasta clonada |
 | "Fonte indisponível" | O PID não é de um processo do Discord desktop |
 | Nada é transcrito | Confirme `python` no PATH, volume do áudio e o microfone padrão do Windows |
-| Interpretador usa CPU e fica lento | Instale o runtime Vulkan (passo 7) ou use o Qwen 2.5 3B |
+| Interpretador usa CPU e fica lento | Instale o runtime Vulkan (passo 8) ou use o Qwen 2.5 3B |
 
 ## Testes
 
@@ -194,7 +227,7 @@ python experiments/process-loopback/test_audio_sources.py
 
 ## Documentação
 
-[Visão do produto](docs/PRODUCT_VISION.md) · [Requisitos](docs/REQUIREMENTS.md) · [Escopo do MVP](docs/MVP_SCOPE.md) · [Arquitetura](docs/ARCHITECTURE.md) · [Pesquisa técnica](docs/TECHNICAL_RESEARCH.md) · [Riscos](docs/RISKS.md) · [Roadmap](docs/ROADMAP.md) · [Bancada de captura](experiments/process-loopback/README.md) · [Prévia desktop](experiments/desktop-preview/README.md)
+[Guia rápido da Mestre (Vaesen)](docs/VAESEN_GUIA_DO_MESTRE.md) · [Visão do produto](docs/PRODUCT_VISION.md) · [Requisitos](docs/REQUIREMENTS.md) · [Escopo do MVP](docs/MVP_SCOPE.md) · [Arquitetura](docs/ARCHITECTURE.md) · [Pesquisa técnica](docs/TECHNICAL_RESEARCH.md) · [Riscos](docs/RISKS.md) · [Roadmap](docs/ROADMAP.md) · [Bancada de captura](experiments/process-loopback/README.md) · [Prévia desktop](experiments/desktop-preview/README.md)
 
 ## Licenças e atribuição
 

@@ -134,6 +134,19 @@
                                         <TextBlock Grid.Column="1" Text="{Binding PageLabel}" Foreground="{StaticResource Accent}"
                                                    FontSize="12" FontWeight="SemiBold" Margin="8,0,0,0" />
                                     </Grid>
+                                    <TextBlock Text="{Binding Blurb}" Foreground="{StaticResource Muted}" FontSize="12" TextWrapping="Wrap"
+                                               TextTrimming="CharacterEllipsis" MaxHeight="34" ToolTip="{Binding Blurb}">
+                                        <TextBlock.Style>
+                                            <Style TargetType="TextBlock">
+                                                <Setter Property="Margin" Value="0,5,0,0" />
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding Blurb}" Value="{x:Null}">
+                                                        <Setter Property="Visibility" Value="Collapsed" />
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </TextBlock.Style>
+                                    </TextBlock>
                                     <TextBlock Text="{Binding Note}" Foreground="{StaticResource Gold}" FontSize="11"
                                                TextTrimming="CharacterEllipsis" ToolTip="{Binding Note}">
                                         <TextBlock.Style>
@@ -170,6 +183,34 @@
                                        TextWrapping="Wrap" Margin="0,3,0,0" />
                             <TextBlock x:Name="ReaderNote" Foreground="{StaticResource PaperMuted}" FontSize="12"
                                        FontStyle="Italic" TextWrapping="Wrap" Margin="0,3,0,0" Visibility="Collapsed" />
+                            <Border x:Name="QuickPanel" Background="#EBE3D1" BorderBrush="{StaticResource PaperLine}" BorderThickness="1"
+                                    CornerRadius="10" Padding="14,11,14,5" Margin="0,12,0,0" Visibility="Collapsed">
+                                <StackPanel>
+                                    <TextBlock Text="LEITURA RÁPIDA" FontWeight="Bold" FontSize="10" Foreground="{StaticResource PaperMuted}" />
+                                    <TextBlock x:Name="QuickWhen" TextWrapping="Wrap" FontSize="14" FontWeight="SemiBold" Margin="0,4,0,0" />
+                                    <ItemsControl x:Name="QuickFacts" Focusable="False" Margin="0,9,0,0"
+                                                  AutomationProperties.Name="Números e regras-chave do tópico">
+                                        <ItemsControl.ItemsPanel>
+                                            <ItemsPanelTemplate>
+                                                <WrapPanel />
+                                            </ItemsPanelTemplate>
+                                        </ItemsControl.ItemsPanel>
+                                        <ItemsControl.ItemTemplate>
+                                            <DataTemplate>
+                                                <Border Background="{StaticResource Paper}" BorderBrush="{StaticResource PaperLine}" BorderThickness="1"
+                                                        CornerRadius="8" Padding="10,6,12,7" Margin="0,0,8,8" MaxWidth="340">
+                                                    <StackPanel>
+                                                        <TextBlock Text="{Binding LabelUpper}" FontSize="9.5" FontWeight="Bold"
+                                                                   Foreground="{StaticResource PaperMuted}" TextWrapping="Wrap" />
+                                                        <TextBlock Text="{Binding Value}" FontSize="13" FontWeight="SemiBold" TextWrapping="Wrap"
+                                                                   Margin="0,2,0,0" />
+                                                    </StackPanel>
+                                                </Border>
+                                            </DataTemplate>
+                                        </ItemsControl.ItemTemplate>
+                                    </ItemsControl>
+                                </StackPanel>
+                            </Border>
                             <Border x:Name="ReaderSummaryPanel" Background="{StaticResource PaperLine}" CornerRadius="9"
                                     Padding="13,10" Margin="0,12,0,0" Visibility="Collapsed">
                                 <StackPanel>
@@ -187,6 +228,9 @@
                         <DockPanel>
                             <Button x:Name="OpenPdfButton" DockPanel.Dock="Right" Content="Abrir PDF original"
                                     Click="OpenPdf" IsEnabled="False" Background="{StaticResource PaperInk}"
+                                    BorderBrush="{StaticResource PaperInk}" />
+                            <Button x:Name="ToggleViewButton" DockPanel.Dock="Right" Visibility="Collapsed" MinWidth="150"
+                                    Click="ToggleView" Margin="0,0,8,0" Background="{StaticResource PaperInk}"
                                     BorderBrush="{StaticResource PaperInk}" />
                             <Button x:Name="ToggleLanguageButton" DockPanel.Dock="Right" Visibility="Collapsed" MinWidth="166"
                                     Click="ToggleLanguage" Margin="0,0,8,0" Background="{StaticResource PaperInk}"

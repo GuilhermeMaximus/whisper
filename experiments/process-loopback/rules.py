@@ -162,8 +162,19 @@ def topic_words(text):
 
 def read_vaesen_catalog():
     directory = Path(__file__).resolve().parents[1] / "desktop-preview"
-    return [topic for name in ("vaesen-topics.json", "vaesen-entries.json")
-            for topic in json.loads((directory / name).read_text(encoding="utf-8"))]
+    guide_path = directory / "vaesen-guide.json"
+    guide = json.loads(guide_path.read_text(encoding="utf-8")) if guide_path.is_file() else {}
+    cards = guide.get("cards", {})
+    groups = {group["id"]: group["title"] for group in guide.get("groups", [])}
+    catalog = []
+    for name in ("vaesen-topics.json", "vaesen-entries.json"):
+        for topic in json.loads((directory / name).read_text(encoding="utf-8")):
+            card = cards.get(topic["title"])
+            if card:
+                # O guia traz a situação de uso ("when") em linguagem de mesa: ajuda a busca e o interpretador local.
+                topic = {**topic, "when": card["when"], "group": groups.get(card["group"])}
+            catalog.append(topic)
+    return catalog
 
 
 class VaesenSpeech:

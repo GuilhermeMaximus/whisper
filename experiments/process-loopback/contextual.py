@@ -145,7 +145,7 @@ class ContextualCatalog:
                 self.creatures[words[1:]][words[0]] = title
             if topic.get("kind") == "Variante regional":
                 self.variant_names[title] = {normalize_speech(name) for name in re.findall(r"\b[A-ZÀ-Ý][\w-]+\b", title)}
-        self.terms = {title: set(topic_words(" ".join([title, *topic["aliases"], topic.get("summary") or ""])))
+        self.terms = {title: set(topic_words(" ".join([title, *topic["aliases"], topic.get("summary") or "", topic.get("when") or ""])))
                       for title, topic in self.topics.items()}
         counts = Counter(word for words in self.terms.values() for word in words)
         self.weights = {word: math.log(1 + len(topics) / count) for word, count in counts.items()}
@@ -188,8 +188,8 @@ class ContextualCatalog:
         references = []
         for index, name in enumerate(candidates, 1):
             topic = self.topics[name]
-            description = topic.get("summary") or next(iter(topic.get("voiceExamples", ())), "")
-            references.append({"id": index, "titulo": name, "tipo": topic.get("category", "Procedimento"),
+            description = topic.get("when") or topic.get("summary") or next(iter(topic.get("voiceExamples", ())), "")
+            references.append({"id": index, "titulo": name, "tipo": topic.get("category") or topic.get("group") or "Procedimento",
                                "livro": topic["book"], "pagina": topic["page"],
                                "descricao": description[:210]})
         return references

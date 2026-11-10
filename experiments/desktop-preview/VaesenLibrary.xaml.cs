@@ -16,11 +16,13 @@ public partial class VaesenLibrary : Window
     private bool filtersReady;
     private Entry? readerRow;
     private bool showOriginal;
+    private bool showBook;
 
     internal VaesenLibrary(VaesenCatalog catalog, string? book = null, int? page = null, string? query = null, string? topicTitle = null)
     {
         this.catalog = catalog;
         InitializeComponent();
+        DarkTitleBar.Apply(this);
         Query.Text = query ?? "";
         var filters = new List<FilterChoice> { new(null, "Todos os livros") };
         filters.AddRange(catalog.Books.Select(source => new FilterChoice(source.Id, source.Title)));
@@ -105,6 +107,7 @@ public partial class VaesenLibrary : Window
     {
         readerRow = row;
         showOriginal = false;
+        showBook = false;
         var item = row.Page;
         ReaderTitle.Text = row.Title;
         ReaderSource.Text = item.Book.Title;
@@ -113,8 +116,30 @@ public partial class VaesenLibrary : Window
         ReaderNote.Text = row.Note;
         ReaderNote.Visibility = string.IsNullOrEmpty(ReaderNote.Text) ? Visibility.Collapsed : Visibility.Visible;
         ReaderSummary.Text = row.Topic.Summary;
+        ShowQuickPanel(row);
         SetPageText(row);
         OpenPdfButton.IsEnabled = true;
+    }
+
+    private void ShowQuickPanel(Entry row)
+    {
+        var card = row.Card;
+        bool hasWhen = !string.IsNullOrWhiteSpace(card?.When);
+        bool hasFacts = card is { Quick.Length: > 0 };
+        QuickPanel.Visibility = hasWhen || hasFacts ? Visibility.Visible : Visibility.Collapsed;
+        QuickWhen.Text = card?.When ?? "";
+        QuickWhen.Visibility = hasWhen ? Visibility.Visible : Visibility.Collapsed;
+        QuickFacts.ItemsSource = card?.Quick;
+        QuickFacts.Visibility = hasFacts ? Visibility.Visible : Visibility.Collapsed;
+    }
+
+    private void ToggleView(object sender, RoutedEventArgs args)
+    {
+        if (readerRow is { } row)
+        {
+            showBook = !showBook;
+            SetPageText(row);
+        }
     }
 
     private void ToggleLanguage(object sender, RoutedEventArgs args)
@@ -129,6 +154,21 @@ public partial class VaesenLibrary : Window
     private void SetPageText(Entry row)
     {
         var item = row.Page;
+        bool hasCard = row.Card is { Sections.Length: > 0 };
+        bool hasBook = row.Original.Length > 0 || row.Portuguese.Length > 0;
+        ToggleViewButton.Visibility = hasCard && hasBook ? Visibility.Visible : Visibility.Collapsed;
+        ToggleViewButton.Content = showBook || !hasCard ? "Ver ficha organizada" : "Ver trecho do livro";
+        if (hasCard && !showBook)
+        {
+            ReadingLanguage.Text = row.Card!.Group is not null ? "Ficha organizada · resumo em português" :
+                "Ficha organizada · extraída do livro";
+            ToggleLanguageButton.Visibility = Visibility.Collapsed;
+            ReaderSummaryPanel.Visibility = Visibility.Collapsed;
+            FlowDocument organized = CreateDocument(row.Card.ToBlocks());
+            organized.Language = XmlLanguage.GetLanguage("pt-BR");
+            PageText.Document = organized;
+            return;
+        }
         bool canTranslate = row.Portuguese.Length > 0 || item.Book.IsEnglish && row.Topic.Summary is not null;
         bool translated = canTranslate && !showOriginal;
         var blocks = translated ? row.Portuguese : row.Original;
@@ -137,7 +177,7 @@ public partial class VaesenLibrary : Window
             item.Book.IsEnglish ? "Trecho técnico · Original em inglês" : "Trecho técnico · Original em português";
         ToggleLanguageButton.Visibility = canTranslate && row.Original.Length > 0 ? Visibility.Visible : Visibility.Collapsed;
         ToggleLanguageButton.Content = translated ? "Ver original em inglês" : "Ver tradução";
-        ReaderSummaryPanel.Visibility = hasExcerpt && !string.IsNullOrWhiteSpace(ReaderSummary.Text)
+        ReaderSummaryPanel.Visibility = hasExcerpt && row.Card is null && !string.IsNullOrWhiteSpace(ReaderSummary.Text)
             ? Visibility.Visible : Visibility.Collapsed;
         if (!hasExcerpt)
         {
@@ -159,11 +199,23 @@ public partial class VaesenLibrary : Window
             PagePadding = new Thickness(24, 17, 22, 20),
             LineHeight = 24,
         };
+        int step = 0;
         foreach (var block in blocks)
         {
+            step = block.Type == ReferenceText.Kind.Step ? step + 1 : 0;
             var paragraph = new Paragraph { Margin = new Thickness(0, 0, 0, 10) };
             switch (block.Type)
             {
+                case ReferenceText.Kind.Step:
+                    paragraph.Margin = new Thickness(26, 0, 0, 8);
+                    paragraph.TextIndent = -24;
+                    paragraph.Inlines.Add(new Run($"{step}.  ")
+                    {
+                        FontFamily = new FontFamily("Segoe UI"),
+                        FontWeight = FontWeights.Bold,
+                        Foreground = (Brush)FindResource("PaperMuted"),
+                    });
+                    break;
                 case ReferenceText.Kind.Heading:
                     paragraph.FontFamily = new FontFamily("Segoe UI");
                     paragraph.FontSize = 15;

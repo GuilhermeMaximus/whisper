@@ -9,5 +9,6 @@
   <ItemGroup>
     <None Update="vaesen-topics.json" CopyToOutputDirectory="PreserveNewest" />
     <None Update="vaesen-entries.json" CopyToOutputDirectory="PreserveNewest" />
+    <None Update="vaesen-guide.json" CopyToOutputDirectory="PreserveNewest" />
   </ItemGroup>
 </Project>

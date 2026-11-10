@@ -18,7 +18,7 @@ internal static class ReferenceText
         @"^(?:LIMITE DE|TEMPO EFEITO|COMBATE À DISTÂNCIA|COMBATE CORPO A CORPO|CLOSE COMBAT|RANGED COMBAT|FORÇA|FORCE)$",
         RegexOptions.CultureInvariant);
 
-    internal enum Kind { Paragraph, Heading, Bullet, Values }
+    internal enum Kind { Paragraph, Heading, Bullet, Values, Step }
     internal sealed record Block(Kind Type, string Text);
 
     public static IEnumerable<Block> Format(string text)
